@@ -1,0 +1,45 @@
+<%- include('header') %>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:450px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Sign-Up!</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Register to enjoy our hot news.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+  
+  <div class="w3-row-padding" style="padding: 30px 20px 30px 20px">
+
+    <% if (message) { %>
+      <div class="alert alert-warning" role="alert">
+        <%= message %>
+      </div>
+    <% } %>
+
+    <form action="/auth/login" method="post">
+      <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input name="email" type="text" class="form-control" value="<%= email ? email : "" %>">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" value="<%= password ? password : "" %>">
+      </div>
+  
+      
+      <div class="mb-3" style="margin-top: 50px">
+        <input type="submit" class="btn btn-danger" value="L O G I N">
+      </div>
+    </form>
+  
+  </div>
+
+
+<%- include('footer') %>
