@@ -42,7 +42,7 @@ class Auth {
     res.render("register", { title: "Register", signup, name, date, gender, phone, email, password });
   }
 
-  static async registerSubmit(req, res) {
+  static registerSubmit(req, res) {
     const { name, date, gender, phone, email, password } = req.body;
 
     if (!name || !date || !gender || !phone || !email || !password) {

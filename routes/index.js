@@ -2,17 +2,13 @@ const express = require("express");
 const multer  = require('multer')
 
 const router = express.Router();
-const { Auth, verify } = require("../controllers/auth");
 const Controller = require("../controllers");
 
+const { Auth, verify } = require("../controllers/auth");
+
 let storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads')
-  },
-  filename: (req, file, cb)  => {
-    // console.log(file.fieldname);
-    cb(null, file.originalname)
-  }
+  destination: (req, file, cb) => { cb(null, 'uploads') },
+  filename: (req, file, cb)  => { cb(null, file.originalname) }
 })
 
 let upload = multer({ storage: storage })
@@ -24,13 +20,8 @@ router.post("/auth/register", Auth.registerSubmit);
 router.get("/auth/logout", Auth.logout);
 router.get("/", Controller.home);
 
-
-
-
-router.get("/posts", verify, Controller.post);
+router.get("/posts", Controller.post);
 router.get('/posts/delete/:postId', Controller.deletePosting)
-
-
 
 router.get('/posts/add', verify, Controller.showAddPosting)
 router.post('/posts/add', upload.single('avatar'), Controller.postAddPosting)
