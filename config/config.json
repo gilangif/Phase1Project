@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "XMedia",
+    "database": "xmedia",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

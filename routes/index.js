@@ -1,36 +1,42 @@
 const express = require("express");
 const multer  = require('multer')
-// const upload = multer({ dest: 'uploads/' })
 
 const router = express.Router();
-const { Auth, verify } = require("../controllers/auth");
 const Controller = require("../controllers");
+
+const { Auth, verify } = require("../controllers/auth");
+
+let storage = multer.diskStorage({
+  destination: (req, file, cb) => { cb(null, 'uploads') },
+  filename: (req, file, cb)  => { cb(null, file.originalname) }
+})
+
+let upload = multer({ storage: storage })
 
 router.get("/auth/login", Auth.login);
 router.post("/auth/login", Auth.loginSubmit);
 router.get("/auth/register", Auth.register);
 router.post("/auth/register", Auth.registerSubmit);
 router.get("/auth/logout", Auth.logout);
-
 router.get("/", Controller.home);
 
-router.get("/posts", verify, (req, res) => {
-  res.send("kalau lihat pesan ini berarti sudah login")
-});
+router.get("/posts", verify, Controller.post);
+router.get('/posts/delete/:postId', verify, Controller.deletePosting)
+
+router.get('/posts/add', verify, Controller.showAddPosting)
+router.post('/posts/add', upload.single('avatar'), Controller.postAddPosting)
+
+router.get('/posts/edit/:postId', verify, Controller.showUpdatePosting)
+router.post('/posts/edit/:postId', Controller.postUpdatePosting)
 
 
 
-let storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads')
-  },
-  filename: (req, file, cb)  => {
-    // console.log(file.fieldname);
-    cb(null, file.originalname)
-  }
-})
 
-let upload = multer({ storage: storage })
+
+
+
+
+
 
 
 

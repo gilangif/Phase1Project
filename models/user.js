@@ -1,14 +1,22 @@
 "use strict";
+
 const { Model } = require("sequelize");
+const { Op } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
+    static getUserFromStatic(Post,PostTag, Tag, search) {
+      if (!search) {
+        search = ""
+      }
+
+      return User.findAll({ include: { model: Post,  include: { model: PostTag, include: { model: Tag } } , where: { title: { [Op.iLike]: `%${search}%` } }} })
+    }
+
     static associate(models) {
       User.belongsTo(models.Account, { foreignKey: "AccountId" });
+      User.hasMany(models.Post, {foreignKey: 'UserId'})
     }
   }
   User.init(

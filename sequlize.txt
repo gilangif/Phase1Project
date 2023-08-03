@@ -1,3 +1,0 @@
-sequelize db:create
-sequelize model:generate --name Account --attributes email:string,password:string,role:string
-sequelize model:generate --name User --attributes name:string,date:date,gender:string,phone:string,AccountId:integer

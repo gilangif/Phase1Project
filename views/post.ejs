@@ -1,0 +1,56 @@
+<%- include('header') %>
+
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="w3-main" style="margin-left:450px;margin-right:40px;">
+
+  
+  <form action="/posts" method="get">
+    <div class="input-group mb-3">
+      <input name="search" type="text" class="form-control" placeholder="Search article">
+      <input type="submit" class="btn btn-primary" style="margin-left: 10px" id="basic-addon2">
+    </div>
+  </form>
+
+  <div class="row">
+
+    <% data.forEach((user) => { %>
+      <% user.Posts.forEach((post) => { %>
+       
+      <div class="card" style="width: 17.8rem; margin: 10px">
+        <img class="card-img-top" src="<%= post.img %>" style="height: 250px">
+        <div class="card-body" style="text-align: justify; height: 268px; overflow: hidden;">
+          <h3 class="card-title"><%= post.title %></h3>
+          <h6>last updated: <%= post.formatDate(post.updatedAt) %></h6>
+          <p class="card-text"><%= post.post %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% if (post.PostTags.length === 0) { %>
+            <li class="list-group-item">....</li>
+            <% } else { %>
+              <% post.PostTags.forEach((postTag) => { %>
+                
+                  
+                <li class="list-group-item"><%= postTag.Tag.name %></li>
+              <% }) %>
+           <% } %>
+        </ul>
+        <div class="card-body">
+          <a href="/posts/edit/<%= post.id %>" class="btn btn-dark">Edit</a>
+          <a href="/posts/delete/<%= post.id %>" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+      <% }) %>
+
+    <% }) %>
+
+  </div>
+
+
+ 
+
+
+
+  
+
+
+    

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Gilang Idul Fitri",
+    "date": "1999-01-12",
+    "gender": "Male",
+    "phone": "081295026951",
+    "AccountId": 1
+  },
+  {
+    "name": "Alfonso Bolo",
+    "date": "2012-01-01",
+    "gender": "Female",
+    "phone": "081237210505",
+    "AccountId": 2
+  },
+  {
+    "name": "Budiyanto Sudmojo",
+    "date": "2013-10-12",
+    "gender": "Male",
+    "phone": "081237210111",
+    "AccountId": 3
+  },
+  {
+    "name": "Charlie Genz",
+    "date": "2002-02-02",
+    "gender": "Female",
+    "phone": "081237210595",
+    "AccountId": 1
+  },
+  {
+    "name": "Johan Bekasi",
+    "date": "10-10-2000",
+    "gender": "Male",
+    "phone": "081237218091",
+    "AccountId": 1
+  }
+]

@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "title": "Announcement",
+      "post": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eaque voluptate debitis doloremque eum rem? Culpa natus ea pariatur ad suscipit assumenda eaque, impedit odit vel dolorum enim repellat sint voluptatum tempore praesentium numquam, ipsam, ipsa ullam illum asperiores et aliquid architecto magni totam. Magni quae illum unde necessitatibus dignissimos perferendis veniam aliquid nulla harum ex. Aliquam nobis assumenda est!",
+      "img": "https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/intisarifoto/original/18404_bagaimana-cara-membuat-orang-lain-senang.jpg",
+      "UserId": 1
+    },
+    {
+      "id": 2,
+      "title": "Berita",
+      "post": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eaque voluptate debitis doloremque eum rem? Culpa natus ea pariatur ad suscipit assumenda eaque, impedit odit vel dolorum enim repellat sint voluptatum tempore praesentium numquam, ipsam, ipsa ullam illum asperiores et aliquid architecto magni totam. Magni quae illum unde necessitatibus dignissimos perferendis veniam aliquid nulla harum ex. Aliquam nobis assumenda est!",
+      "img": "https://img.okezone.com/content/2022/06/24/406/2617293/daftar-jalan-paling-macet-di-jakarta-sebaiknya-hindari-biar-enggak-mumet-N4iaC3kxvW.JPG",
+      "UserId": 3
+    },
+    {
+      "id": 3,
+      "title": "Artis",
+      "post": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eaque voluptate debitis doloremque eum rem? Culpa natus ea pariatur ad suscipit assumenda eaque, impedit odit vel dolorum enim repellat sint voluptatum tempore praesentium numquam, ipsam, ipsa ullam illum asperiores et aliquid architecto magni totam. Magni quae illum unde necessitatibus dignissimos perferendis veniam aliquid nulla harum ex. Aliquam nobis assumenda est!",
+      "img": "https://pict.sindonews.net/dyn/850/pena/news/2023/03/19/187/1050751/4-artis-cantik-indonesia-yang-dikira-lebih-tua-nomor-3-masih-16-tahun-dmv.jpeg",
+      "UserId": 1
+    },
+    {
+      "id": 4,
+      "title": "Sport",
+      "post": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eaque voluptate debitis doloremque eum rem? Culpa natus ea pariatur ad suscipit assumenda eaque, impedit odit vel dolorum enim repellat sint voluptatum tempore praesentium numquam, ipsam, ipsa ullam illum asperiores et aliquid architecto magni totam. Magni quae illum unde necessitatibus dignissimos perferendis veniam aliquid nulla harum ex. Aliquam nobis assumenda est!",
+      "img": "https://www.shutterstock.com/shutterstock/photos/1592944909/display_1500/stock-photo-badminton-racket-and-shuttlecock-in-motion-shuttlecock-sport-1592944909.jpg",
+      "UserId": 3
+    },
+    {
+      "id": 5,
+      "title": "Tom Hade",
+      "post": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eaque voluptate debitis doloremque eum rem? Culpa natus ea pariatur ad suscipit assumenda eaque, impedit odit vel dolorum enim repellat sint voluptatum tempore praesentium numquam, ipsam, ipsa ullam illum asperiores et aliquid architecto magni totam. Magni quae illum unde necessitatibus dignissimos perferendis veniam aliquid nulla harum ex. Aliquam nobis assumenda est!",
+      "img": "https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/intisarifoto/original/18404_bagaimana-cara-membuat-orang-lain-senang.jpg",
+      "UserId": 2
+    }
+  ]
