@@ -1,0 +1,22 @@
+[
+  {
+    "email": "gilangidulfitri1201@gmail.com",
+    "password": "$2b$10$/EEW4gXol4/1t96NBxSkweYCfXupNtCaXR/U10Y7coBtdZENwUuHC",
+    "role": "admin"
+  },
+  {
+    "email": "bapak-ami@gmail.com",
+    "password": "$2b$10$/EEW4gXol4/1t96NBxSkweYCfXupNtCaXR/U10Y7coBtdZENwUuHC",
+    "role": "admin"
+  },
+  {
+    "email": "abc@gmail.com",
+    "password": "$2b$10$X7uTBke4hvKfLBdz/ejNG.QhM.apV5C1u20XEcnLO/OtB026z5QIK",
+    "role": "user"
+  },
+  {
+    "email": "def@gmail.com",
+    "password": "$2b$10$X7uTBke4hvKfLBdz/ejNG.QhM.apV5C1u20XEcnLO/OtB026z5QIK",
+    "role": "user"
+  }
+]

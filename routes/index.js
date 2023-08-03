@@ -1,6 +1,5 @@
 const express = require("express");
 const multer  = require('multer')
-// const upload = multer({ dest: 'uploads/' })
 
 const router = express.Router();
 const { Auth, verify } = require("../controllers/auth");
@@ -11,12 +10,26 @@ router.post("/auth/login", Auth.loginSubmit);
 router.get("/auth/register", Auth.register);
 router.post("/auth/register", Auth.registerSubmit);
 router.get("/auth/logout", Auth.logout);
-
 router.get("/", Controller.home);
 
-router.get("/posts", verify, (req, res) => {
-  res.send("kalau lihat pesan ini berarti sudah login")
-});
+
+
+
+router.get("/posts", verify, Controller.post);
+router.get('/posts/delete/:postId', Controller.deletePosting)
+
+
+
+router.get('/posts/add', Controller.showAddPosting)
+router.post('/posts/add', Controller.postAddPosting)
+
+router.get('/posts/edit/:postId', Controller.showUpdatePosting)
+router.post('/posts/edit/:postId', Controller.postUpdatePosting)
+
+
+
+
+
 
 
 
