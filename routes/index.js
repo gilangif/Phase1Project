@@ -5,6 +5,18 @@ const router = express.Router();
 const { Auth, verify } = require("../controllers/auth");
 const Controller = require("../controllers");
 
+let storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads')
+  },
+  filename: (req, file, cb)  => {
+    // console.log(file.fieldname);
+    cb(null, file.originalname)
+  }
+})
+
+let upload = multer({ storage: storage })
+
 router.get("/auth/login", Auth.login);
 router.post("/auth/login", Auth.loginSubmit);
 router.get("/auth/register", Auth.register);
@@ -20,8 +32,8 @@ router.get('/posts/delete/:postId', Controller.deletePosting)
 
 
 
-router.get('/posts/add', Controller.showAddPosting)
-router.post('/posts/add', Controller.postAddPosting)
+router.get('/posts/add', verify, Controller.showAddPosting)
+router.post('/posts/add', upload.single('avatar'), Controller.postAddPosting)
 
 router.get('/posts/edit/:postId', Controller.showUpdatePosting)
 router.post('/posts/edit/:postId', Controller.postUpdatePosting)
@@ -33,17 +45,7 @@ router.post('/posts/edit/:postId', Controller.postUpdatePosting)
 
 
 
-let storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads')
-  },
-  filename: (req, file, cb)  => {
-    // console.log(file.fieldname);
-    cb(null, file.originalname)
-  }
-})
 
-let upload = multer({ storage: storage })
 
 
 

@@ -1,3 +1,7 @@
 sequelize db:create
 sequelize model:generate --name Account --attributes email:string,password:string,role:string
 sequelize model:generate --name User --attributes name:string,date:date,gender:string,phone:string,AccountId:integer
+
+        <input name="email" type="text" class="form-control" value="<%= email ? email : "" %>">
+
+        <input name="password" type="password" class="form-control" value="<%= password ? password : "" %>">

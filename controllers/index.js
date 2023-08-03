@@ -1,23 +1,14 @@
+const { ValidationErrorItemOrigin } = require('sequelize')
 const { Post, Tag, PostTag, User } = require('../models/')
 
 
 class Controller {
     static home(req, res) {
-        res.render("home", { title: "Homepage" })
+        res.render("home", { title: "Homepage", login: req.session.login })
     }
 
     static post(req, res) {
-        User.findAll({
-            include: {
-                model: Post,
-                include: {
-                    model: PostTag,
-                    include: {
-                        model: Tag
-                    }
-                }
-            }
-        })
+        User.getUserFromStatic(Post, PostTag, Tag)
             .then((data) => {
                 // res.send(data)
                 res.render('post', { title: "Homepage", data })
@@ -31,7 +22,7 @@ class Controller {
         const { errors } = req.query
         Tag.findAll({})
             .then((data) => {
-                res.render('addpost', { data, errors })
+                res.render('addpost', { title: "Add Post", data, errors })
             })
             .catch((err) => {
                 res.send(err)
@@ -41,15 +32,19 @@ class Controller {
 
     static postAddPosting(req, res) {
         const { title, post, img, tag } = req.body
-        Post.create({ title, post, img, UserId: "4" }) //UserId:"4" hardcode. nanti diganti menjadi id account/user
+        let path
+
+        if (req.file) path = `${req.protocol}://${req.headers.host}/uploads/${req.file.filename}`
+
+        Post.create({ title, post, img: path, UserId: req.session.loginid })
             .then((data) => {
                 let id = data.id 
                 return PostTag.create({ PostId: id, TagId: tag })
             })
             .then((data) => {
-                res.redirect('/')
+                res.redirect('/posts')
             })
-            .catch((err) => { //validasi error untuk add
+            .catch((err) => { 
                 if (err.name === "SequelizeValidationError") {
                     const errors = err.errors.map((el) => {
                         return el.message
@@ -80,7 +75,7 @@ class Controller {
                 return Tag.findAll()
             })
             .then((data) => {
-                res.render('editpost', { detailpost, detailtag, data })
+                res.render('editpost', { title: "Edit Post", detailpost, detailtag, data })
             })
 
             .catch((err) => {
@@ -92,7 +87,10 @@ class Controller {
     static postUpdatePosting(req, res) {
         const { title, post, img, tag } = req.body
         const { postId } = req.params
-        Post.update({ title, post, img, UserId: "4" }, {  //misalkan  UserId:"4" hardcode. nanti diganti menjadi id account/user
+
+
+        
+        Post.update({ title, post, img, UserId: req.session.loginid }, {  
             where: {
                 id: +postId
             }
@@ -121,7 +119,7 @@ class Controller {
             }
         })
             .then((data) => {
-                res.redirect('/')
+                res.redirect('/posts')
             })
             .catch((err) => {
                 res.send(err.message)

@@ -19,8 +19,8 @@ class Auth {
             if (!data) {
               res.redirect(`/auth/login?message=Invalid%20Password%20!&&email=${email}&&password=${password}`)
             } else {
-              req.session.login = true
-              req.session.loginInfo = { result }
+              req.session.login = { result }
+              req.session.loginid = result.id
               res.redirect("/posts")
             }
           })
