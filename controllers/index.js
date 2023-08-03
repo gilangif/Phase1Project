@@ -6,7 +6,7 @@ class Controller {
   }
 
   static post(req, res) {
-    User.getUserFromStatic(Post, PostTag, Tag)
+    User.getUserFromStatic(Post, PostTag, Tag, req.query.search)
       .then((data) => res.render("post", { title: "Homepage", data }))
       .catch((err) => res.send(err.message));
   }

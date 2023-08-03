@@ -20,13 +20,13 @@ router.post("/auth/register", Auth.registerSubmit);
 router.get("/auth/logout", Auth.logout);
 router.get("/", Controller.home);
 
-router.get("/posts", Controller.post);
-router.get('/posts/delete/:postId', Controller.deletePosting)
+router.get("/posts", verify, Controller.post);
+router.get('/posts/delete/:postId', verify, Controller.deletePosting)
 
 router.get('/posts/add', verify, Controller.showAddPosting)
 router.post('/posts/add', upload.single('avatar'), Controller.postAddPosting)
 
-router.get('/posts/edit/:postId', Controller.showUpdatePosting)
+router.get('/posts/edit/:postId', verify, Controller.showUpdatePosting)
 router.post('/posts/edit/:postId', Controller.postUpdatePosting)
 
 

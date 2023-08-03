@@ -1,20 +1,17 @@
 "use strict";
+
 const { Model } = require("sequelize");
+const { Op } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     
-    static getUserFromStatic(Post,PostTag, Tag) {
-      return User.findAll({
-        include: {
-            model: Post,
-            include: {
-                model: PostTag,
-                include: {
-                    model: Tag
-                }
-            }
-        }
-    })
+    static getUserFromStatic(Post,PostTag, Tag, search) {
+      if (!search) {
+        search = ""
+      }
+
+      return User.findAll({ include: { model: Post,  include: { model: PostTag, include: { model: Tag } } , where: { title: { [Op.iLike]: `%${search}%` } }} })
     }
 
     static associate(models) {

@@ -1,13 +1,13 @@
 [
   {
-    "email": "gilangidulfitri1201@gmail.com",
-    "password": "$2b$10$/EEW4gXol4/1t96NBxSkweYCfXupNtCaXR/U10Y7coBtdZENwUuHC",
+    "email": "alditaher@presidenku.com",
+    "password": "$2b$10$zK2B.CrM1PsShk9RYL6ti.ovsWnq2A19HSWU12q/LYxjgn6kjXFZC",
     "role": "admin"
   },
   {
     "email": "bapak-ami@gmail.com",
     "password": "$2b$10$/EEW4gXol4/1t96NBxSkweYCfXupNtCaXR/U10Y7coBtdZENwUuHC",
-    "role": "admin"
+    "role": "user"
   },
   {
     "email": "abc@gmail.com",
