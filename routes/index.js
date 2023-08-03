@@ -39,7 +39,7 @@ router.get("/uploads", (req, res) => {
 })
 
 router.post("/uploads", upload.single('avatar'), (req, res) => {
-  // console.log(req.file);
+  console.log(req.file);  
   res.send("ok")
 })
 
