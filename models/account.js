@@ -29,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: { msg: "Form password cannot be empty !" },
-          notNull: { msg: "Form password cannot be empty !" }
+          notNull: { msg: "Form password cannot be empty !" },
+          len: { args: 8, msg: "Password min 8 character" }
         }
       },
       role: DataTypes.STRING,
